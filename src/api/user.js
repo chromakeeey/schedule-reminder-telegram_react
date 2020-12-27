@@ -14,7 +14,6 @@ export const Verify = () => {
   return async (dispatch) => {
     try {
       const token = localStorage.getItem('access-token');
-      console.log(token);
 
       const response = await axiosInstance.get('verify', {
         headers: {
@@ -27,7 +26,7 @@ export const Verify = () => {
 
     catch (error) {
       console.log(error);
-      //localStorage.removeItem('access-token');
+      localStorage.removeItem('access-token');
     }
   }
 };

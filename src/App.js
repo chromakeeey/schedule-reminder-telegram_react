@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 import Auth from './pages/Auth'
@@ -8,45 +8,55 @@ import Profile from './pages/Profile';
 
 import { Verify } from './api/user';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 function App() {
   const isAuth = useSelector(state => state.user.isAuth);
   const dispatch = useDispatch();
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    dispatch(Verify());
+    async function load() {
+      await dispatch(Verify());
+      setLoaded(true);
+    }
+
+    load();
   }, []);
 
-  if (!isAuth) {
-    return (
-      <BrowserRouter>
+  if (loaded) {
+    if (!isAuth) {
+      return (
         <Switch>
-          <Route path='/auth/:token' component={Auth}/>
-          <Route path='/no-auth' component={NoAuth}/>
+          <Route path='/auth/:token' exact component={Auth}/>
+          <Route path='/no-auth' exact component={NoAuth}/>
           <Route exact path='/'>
             <Redirect to='/no-auth' />
           </Route>
-          <Route component={NotFound} />
+          <Route path='*' exact component={NotFound} />
         </Switch>
-      </BrowserRouter>
-    )
-  }
+      )
+    }
 
-  return (
-    <BrowserRouter>
+    return (
       <Switch>
-        <Route path='/profile' component={Profile} />
+        <Route path='/profile' exact component={Profile} />
+        <Route path='/profile/schedules' exact component={Profile} />
         <Route exact path='/'>
           <Redirect to ='/profile'/>
         </Route>
         <Route exact path='/no-auth'>
           <Redirect to='/profile'/>
         </Route>
-        <Route component={NotFound} />
+        <Route exact path='/auth/:token'>
+          <Redirect to='/profile'/>
+        </Route>
+        <Route path="*" component={NotFound} />
       </Switch>
-    </BrowserRouter>
-  );
+    );
+  }
+
+  return (<></>);
 }
 
 export default App;
