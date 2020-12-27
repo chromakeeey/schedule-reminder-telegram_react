@@ -1,24 +1,15 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-//import axiosInstance from '../api/axiosInstance';
+import { useDispatch } from 'react-redux';
 
-import axios from 'axios';
+import { Authentication } from '../api/user';
 
 const Auth = () => {
   const { token } = useParams();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    // async function getAnswer() {
-    //   const answer = await axiosInstance.get(`auth/${token}`);
-
-    //   return answer;
-    // }
-
-    // console.log(getAnswer());
-
-    axios.get(`http://localhost:5000/auth/${token}`).
-      then(res => console.log(res.data));
-
+    dispatch(Authentication(token));
   }, []);
 
   return (
