@@ -1,0 +1,28 @@
+.no-auth__main-container {
+  font-family: 'Rubik', sans-serif;
+
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.no-auth__label {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.no-auth__message {
+  width: 1024px;
+  text-align: center;
+
+  font-weight: 300;
+  font-size: 24px;
+
+
+  margin-bottom: 25px;
+}
