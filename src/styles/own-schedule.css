@@ -1,0 +1,41 @@
+.own-schedule__container {
+  display: flex;
+
+  border-radius: 10px;
+  background-color: #ededed;
+
+  padding: 15px;
+  
+  margin-top: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  width: 300px;
+
+  -webkit-box-shadow: 0px 0px 60px -44px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 60px -44px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 60px -44px rgba(0,0,0,0.75);
+}
+
+.own-schedule__date {
+  margin-top: 20px;
+  color: rgba(0, 0, 0, 0.9)
+}
+
+.own-schedule__button-go {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.id-span {
+  color: rgba(0, 0, 0, 0.5)
+}
+
+.flex-1 {
+  flex: 1;
+}

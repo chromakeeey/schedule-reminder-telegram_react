@@ -1,0 +1,9 @@
+.profile__main-container {
+  font-family: 'Rubik', sans-serif;
+  padding: 30px;
+}
+
+.profile__my-schedules {
+  display: flex;
+  flex-wrap: wrap;
+}

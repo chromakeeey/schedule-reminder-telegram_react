@@ -3,7 +3,7 @@ import LocalizedStrings from 'react-localization';
 let strings = new LocalizedStrings({
   en: {
     noAuthLabel: "You are not authorized",
-    telegramAuth: "Go to the bot and click the \"Authorize in the browser\" button in the menu.",
+    telegramAuth: "Go to the bot and click the \"Browser authorization\" button in the menu.",
     goTelegram: "Go to Telegram",
     brandName: "Schedule Reminder",
     mySchedules: "My schedules",
