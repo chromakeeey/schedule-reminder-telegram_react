@@ -6,18 +6,27 @@ import NoAuth from './pages/NoAuth';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 
+import { getLanguage } from './api/language';
 import { Verify } from './api/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
+import strings from './locale/strings';
+
 function App() {
   const isAuth = useSelector(state => state.user.isAuth);
+  const language = useSelector(state => state.language);
+
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
+
+  strings.setLanguage(language);
 
   useEffect(() => {
     async function load() {
       await dispatch(Verify());
+      await dispatch(getLanguage());
+
       setLoaded(true);
     }
 
