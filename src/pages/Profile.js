@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getUserSchedules } from '../api/schedule';
 
+import strings from '../locale/strings';
 import OwnSchedule from '../components/OwnSchedule';
 import Header from '../components/Header';
 import '../styles/profile.css';
@@ -23,7 +24,7 @@ const Profile = () => {
     <div>
       <Header/>
       <div className='profile__main-container' >
-        <h3>My schedules</h3>
+        <h3>{strings.mySchedules}</h3>
         <div className='profile__my-schedules' >
           {
             schedules.length !== 0 &&
@@ -36,7 +37,7 @@ const Profile = () => {
             })
           }
         </div>
-        <h3>My subscriptions</h3>
+        <h3>{strings.mySubs}</h3>
       </div>
     </div>
   );
