@@ -1,0 +1,12 @@
+.schedule-page__main-container {
+  padding: 15px;
+}
+
+.schedule-page__main-container h1 {
+  font-weight: 900;
+}
+
+.schedule-page__main-container h5 {
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.5);
+}

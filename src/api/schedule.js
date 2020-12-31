@@ -11,3 +11,15 @@ export const getUserSchedules = async (userId) => {
 
   return response.data;
 };
+
+export const getSchedule = async (scheduleId) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.get(`schedules/${scheduleId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return response.data;
+};

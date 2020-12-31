@@ -5,6 +5,7 @@ import Auth from './pages/Auth'
 import NoAuth from './pages/NoAuth';
 import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
+import Schedule from './pages/Schedule';
 
 import { getLanguage } from './api/language';
 import { Verify } from './api/user';
@@ -51,6 +52,7 @@ function App() {
       <Switch>
         <Route path='/profile' exact component={Profile} />
         <Route path='/profile/schedules' exact component={Profile} />
+        <Route path='/schedules/:scheduleId' exact component={Schedule} />
         <Route exact path='/'>
           <Redirect to ='/profile'/>
         </Route>

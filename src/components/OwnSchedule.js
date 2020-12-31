@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import Button from 'react-bootstrap/Button';
 import { ArrowRight } from 'react-bootstrap-icons';
@@ -8,10 +9,13 @@ import '../styles/own-schedule.css';
 
 const OwnSchedule = ({ schedule }) => {
   const date = new Date(schedule.created_at);
+  const history = useHistory();
   
   const handleClick = (e) => {
     e.preventDefault();
     console.log(schedule);
+
+    history.push(`/schedules/${schedule.id}`);
   }
 
   return (
