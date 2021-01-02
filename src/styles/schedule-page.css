@@ -1,9 +1,11 @@
 .schedule-page__main-container {
+  font-family: 'Rubik', sans-serif;
   padding: 15px;
 }
 
-.schedule-page__main-container h1 {
-  font-weight: 900;
+.schedule-page__lessons-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .schedule-page__main-container h5 {

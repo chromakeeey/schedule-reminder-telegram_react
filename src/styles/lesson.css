@@ -1,0 +1,21 @@
+.lesson-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  margin-right: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+
+  padding: 10px;
+
+  width: 250px;
+  border-radius: 10px;
+
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
+}
