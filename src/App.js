@@ -50,17 +50,17 @@ function App() {
 
     return (
       <Switch>
-        <Route path='/profile' exact component={Profile} />
-        <Route path='/profile/schedules' exact component={Profile} />
+        <Route path='/home' exact component={Profile} />
+        <Route path='/home/schedules' exact component={Profile} />
         <Route path='/schedules/:scheduleId' exact component={Schedule} />
         <Route exact path='/'>
-          <Redirect to ='/profile'/>
+          <Redirect to ='/home'/>
         </Route>
         <Route exact path='/no-auth'>
-          <Redirect to='/profile'/>
+          <Redirect to='/home'/>
         </Route>
         <Route exact path='/auth/:token'>
-          <Redirect to='/profile'/>
+          <Redirect to='/home'/>
         </Route>
         <Route path="*" component={NotFound} />
       </Switch>
