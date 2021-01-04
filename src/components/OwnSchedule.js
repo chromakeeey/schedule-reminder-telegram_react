@@ -13,7 +13,6 @@ const OwnSchedule = ({ schedule }) => {
   
   const handleClick = (e) => {
     e.preventDefault();
-    console.log(schedule);
 
     history.push(`/schedules/${schedule.id}`);
   }

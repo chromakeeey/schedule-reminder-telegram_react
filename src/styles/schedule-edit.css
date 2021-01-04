@@ -1,0 +1,14 @@
+.schedule-edit__main-container {
+  font-family: 'Rubik', sans-serif;
+  padding: 15px;
+}
+
+.schedule-edit__button-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.schedule-edit__button-success {
+  margin-left: 10px;
+}

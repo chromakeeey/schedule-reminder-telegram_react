@@ -16,7 +16,6 @@ export default function userReducer(state = defaultState, action) {
     }
 
     case LOGOUT: {
-      console.log('STATE_LOGOUT');
       localStorage.removeItem('access-token');
 
       return {

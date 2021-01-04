@@ -12,3 +12,15 @@
   font-weight: 500;
   color: rgba(0, 0, 0, 0.5);
 }
+
+.schedule-page__header-container {
+  display: flex;
+}
+
+.schedule-page__header-container-left {
+  flex: 1;
+}
+
+.schedule-page__button-edit {
+  margin-left: 15px;
+}

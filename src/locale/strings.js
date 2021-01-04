@@ -10,6 +10,12 @@ let strings = new LocalizedStrings({
     mySubs: "My subscriptions",
     search: "Search",
     searchSchedule: "Enter the name or ID of the schedule",
+    nameSchedule: "Schedule name",
+    enterScheduleName: "Enter schedule name",
+    unicalKeySearchSchedule: "You can find the schedule by name",
+    edit: "Edit",
+    subscribe: "Subscribe",
+    unSubscribe: "Unsubscribe"
   },
   ru: {
     noAuthLabel: "Вы не авторизованы",
@@ -20,6 +26,12 @@ let strings = new LocalizedStrings({
     mySubs: "Мои подписки",
     search: "Поиск",
     searchSchedule: "Введите ИД или название расписания",
+    nameSchedule: "Название расписания",
+    enterScheduleName: "Введите название расписания",
+    unicalKeySearchSchedule: "По имени можно найти расписание",
+    edit: "Изменить",
+    subscribe: "Отписаться",
+    unSubscribe: "Подписаться"
   },
   ua: {
     noAuthLabel: "Ви не авторизовані",
@@ -30,6 +42,12 @@ let strings = new LocalizedStrings({
     mySubs: "Мої підписки",
     search: "Search",
     searchSchedule: "Введіть ІД або назву розкладу",
+    nameSchedule: "Назва розкладу",
+    enterScheduleName: "Введіть назву розкладу",
+    unicalKeySearchSchedule: "По назві можливо знайти розклад",
+    edit: "Змінити",
+    subscribe: "Відписатись",
+    unSubscribe: "Підписатись"
   }
 });
 

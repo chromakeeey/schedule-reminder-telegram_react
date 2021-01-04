@@ -1,23 +1,43 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+
 import { getSchedule } from '../api/schedule';
+import { subscribeSchedule, unSubscribeSchedule } from '../api/user';
+
+import strings from '../locale/strings';
 
 import Lesson from '../components/Lesson';
 import Header from '../components/Header';
 import '../styles/schedule-page.css';
 
+import Button from 'react-bootstrap/Button';
+import { PencilFill, Check } from 'react-bootstrap-icons';
+
 const Schedule = () => {
   const { scheduleId } = useParams();
   const [schedule, setSchedule] = useState({});
+  const userId = useSelector(state => state.user.currentUser)
+
   const date = new Date(schedule.created_at);
 
-  useEffect(() => {
-    async function load() {
-      const apiSchedule = await getSchedule(scheduleId);
-      setSchedule(apiSchedule);
-    }
+  const fetchData = async () => {
+    const _schedule = await getSchedule(scheduleId);
+    setSchedule(_schedule);
 
-    load();
+    return true;
+  }
+
+  const handleClickSubscribe = async () => {
+    schedule.is_subscribe
+    ? await unSubscribeSchedule(userId, schedule.id)
+    : await subscribeSchedule(userId, schedule.id);
+
+    fetchData();
+  }
+
+  useEffect(() => {
+    fetchData();
   }, []);
 
   if (!schedule) {
@@ -28,20 +48,39 @@ const Schedule = () => {
     );
   }
 
-  console.log(schedule);
-
   return (
     <div>
       <Header/>
       <div className='schedule-page__main-container'>
-        <h1>
-          {schedule.name}
-        </h1>
-        <h5>
-          #{schedule.id}
-        </h5>
-        <div>
-          {date.toLocaleDateString()} {date.toLocaleTimeString()}
+        <div className='schedule-page__header-container' >
+          <div className='schedule-page__header-container-left' >
+            <h1>
+              {schedule.name}
+            </h1>
+            <h5>
+              #{schedule.id}
+            </h5>
+            <div>
+              {date.toLocaleDateString()} {date.toLocaleTimeString()}
+            </div>
+          </div>
+          <div>
+            <Button variant='outline-success' onClick={handleClickSubscribe} >
+              <Check style={{paddingRight: 5}} />
+              {
+                schedule.is_subscribe
+                ? strings.subscribe
+                : strings.unSubscribe
+              }
+            </Button>
+            {
+              schedule.is_edit &&
+              <Button variant='outline-dark' className='schedule-page__button-edit' href={`/schedules/${schedule.id}/edit`} >
+                <PencilFill style={{paddingRight: 5}} />
+                {strings.edit}
+              </Button>
+            }
+          </div>
         </div>
         <h3 style={{marginTop: 15}} >Lessons</h3>
         <div className='schedule-page__lessons-container' >
