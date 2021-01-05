@@ -1,11 +1,19 @@
 .schedule-component__container {
   display: flex;
   flex-direction: row;
+  background-color: lightgray;
 }
 
 .lessons-container {
   background-color: lightgray;
-  padding: 15px;
+  padding: 3px;
+}
+
+.day-container {
+  flex: 1;
+
+  border: solid rgba(0, 0, 0, 0.2);
+  border-width: 0 1px;
 }
 
 .day-header {
@@ -21,4 +29,8 @@
 
 .gray-color {
   color: gray;
+}
+
+.text-align-center {
+  text-align: center;
 }

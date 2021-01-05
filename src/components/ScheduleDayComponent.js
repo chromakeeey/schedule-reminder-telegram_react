@@ -13,7 +13,7 @@ const ScheduleDayComponent = ({ day, name }) => {
   }
 
   return (
-    <div>
+    <div className='day-container' >
       <div className='day-header' >
         {name}
       </div>
@@ -21,7 +21,7 @@ const ScheduleDayComponent = ({ day, name }) => {
       {
         day.length === 0
         ? (
-          <div className='gray-color' >
+          <div className='gray-color text-align-center' >
             {strings.empty}
           </div>
         )
@@ -31,7 +31,7 @@ const ScheduleDayComponent = ({ day, name }) => {
               day.map((lesson, index) => {
                 return (
                   <div key={index}>
-                    <ScheduleLessonComponent lesson={lesson} /> 
+                    <ScheduleLessonComponent lesson={lesson} serial={index + 1} /> 
                   </div>
                 )
               })
