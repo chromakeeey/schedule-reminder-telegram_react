@@ -7,6 +7,8 @@ import OwnSchedule from '../components/OwnSchedule';
 import Header from '../components/Header';
 import '../styles/profile.css';
 
+import { Book, BookmarkCheck } from 'react-bootstrap-icons';
+
 const Profile = () => {
   const userId = useSelector(state => state.user.currentUser);
   const [schedules, setSchedules] = useState([]);
@@ -24,7 +26,10 @@ const Profile = () => {
     <div>
       <Header/>
       <div className='profile__main-container' >
-        <h3>{strings.mySchedules}</h3>
+        <h3 className='profile-headers' >
+          <Book size={20} className='pofile-headers__icon' />  
+          {strings.mySchedules}
+        </h3>
         <div className='profile__my-schedules' >
           {
             schedules.length !== 0 &&
@@ -37,7 +42,10 @@ const Profile = () => {
             })
           }
         </div>
-        <h3>{strings.mySubs}</h3>
+        <h3 className='profile-headers' >
+          <BookmarkCheck size={20} className='pofile-headers__icon' />
+          {strings.mySubs}
+        </h3>
       </div>
     </div>
   );

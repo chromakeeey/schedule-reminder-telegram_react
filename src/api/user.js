@@ -34,10 +34,12 @@ export const Verify = () => {
 export const subscribeSchedule = async (userId, scheduleId) => {
   const token = localStorage.getItem('access-token');
 
-  const response = await axiosInstance.put(`users/${userId}/subscriptions/${scheduleId}`, {}, {
+  const response = await axiosInstance.post(`users/${userId}/subscriptions`, {
+    schedule_id: scheduleId,
+  }, {
     headers: {
       Authorization: `Bearer ${token}`
-    }
+    },
   });
 
   return response.data;

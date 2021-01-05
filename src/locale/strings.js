@@ -15,7 +15,10 @@ let strings = new LocalizedStrings({
     unicalKeySearchSchedule: "You can find the schedule by name",
     edit: "Edit",
     subscribe: "Subscribe",
-    unSubscribe: "Unsubscribe"
+    unSubscribe: "Unsubscribe",
+    lessons: "Lessons",
+    schedule: "Schedule",
+    empty: "Empty",
   },
   ru: {
     noAuthLabel: "Вы не авторизованы",
@@ -31,7 +34,10 @@ let strings = new LocalizedStrings({
     unicalKeySearchSchedule: "По имени можно найти расписание",
     edit: "Изменить",
     subscribe: "Отписаться",
-    unSubscribe: "Подписаться"
+    unSubscribe: "Подписаться",
+    lessons: "Предметы",
+    schedule: "Расписание",
+    empty: "Пусто",
   },
   ua: {
     noAuthLabel: "Ви не авторизовані",
@@ -47,7 +53,10 @@ let strings = new LocalizedStrings({
     unicalKeySearchSchedule: "По назві можливо знайти розклад",
     edit: "Змінити",
     subscribe: "Відписатись",
-    unSubscribe: "Підписатись"
+    unSubscribe: "Підписатись",
+    lessons: "Предмети",
+    schedule: "Розклад",
+    empty: "Пусто",
   }
 });
 

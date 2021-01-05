@@ -7,3 +7,12 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.profile-headers {
+  display: flex;
+  align-items: center;
+}
+
+.pofile-headers__icon {
+  margin-right: 10px;
+}

@@ -7,12 +7,13 @@ import { subscribeSchedule, unSubscribeSchedule } from '../api/user';
 
 import strings from '../locale/strings';
 
+import ScheduleComponent from '../components/ScheduleComponent';
 import Lesson from '../components/Lesson';
 import Header from '../components/Header';
 import '../styles/schedule-page.css';
 
 import Button from 'react-bootstrap/Button';
-import { PencilFill, Check } from 'react-bootstrap-icons';
+import { PencilFill, Check, Newspaper, CardList } from 'react-bootstrap-icons';
 
 const Schedule = () => {
   const { scheduleId } = useParams();
@@ -82,7 +83,10 @@ const Schedule = () => {
             }
           </div>
         </div>
-        <h3 style={{marginTop: 15}} >Lessons</h3>
+        <h3 className='schedule-page__headers' >
+          <CardList className='schedule-page__headers-icon' />
+          {strings.lessons}
+        </h3>
         <div className='schedule-page__lessons-container' >
         {
           schedule.lessons !== undefined &&
@@ -96,7 +100,11 @@ const Schedule = () => {
           })
         }
         </div>
-        <h3>Schedule</h3>
+        <h3 className='schedule-page__headers' >
+          <Newspaper className='schedule-page__headers-icon' />
+          {strings.schedule}
+        </h3>
+        <ScheduleComponent schedule={schedule} />
       </div>
     </div>
   );

@@ -24,3 +24,15 @@
 .schedule-page__button-edit {
   margin-left: 15px;
 }
+
+.schedule-page__headers {
+  display: flex;
+  align-items: center;
+
+  margin-top: 30px;
+}
+
+.schedule-page__headers-icon {
+  font-size: 20px;
+  margin-right: 15px;
+}
