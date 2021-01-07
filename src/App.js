@@ -53,7 +53,6 @@ function App() {
     return (
       <Switch>
         <Route path='/home' exact component={Profile} />
-        <Route path='/home/schedules' exact component={Profile} />
         <Route path='/home/subscriptions' exact component={Subscriptions}/>
         <Route path='/schedules/:scheduleId' exact component={Schedule} />
         <Route path='/schedules/:scheduleId/edit' exact component={ScheduleEdit} />

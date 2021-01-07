@@ -69,14 +69,14 @@ const Schedule = () => {
           </div>
           <div>
             <Button variant='outline-primary' href={`https://t.me/${schedule.user.username}`} >
-              {strings.goTelegram}
+              {strings.writeToCreator}
             </Button>
             <Button variant='outline-success' onClick={handleClickSubscribe} className='schedule-page__button-edit'>
               <Check style={{paddingRight: 5}} />
               {
                 schedule.is_subscribe
-                ? strings.subscribe
-                : strings.unSubscribe
+                ? strings.unSubscribe
+                : strings.subscribe
               }
             </Button>
             {

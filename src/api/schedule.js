@@ -23,3 +23,15 @@ export const getSchedule = async (scheduleId) => {
 
   return response.data;
 };
+
+export const searchSchedules = async (keyWord) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.get(`schedules/search/${keyWord}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return response.data;
+};

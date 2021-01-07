@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getSubscriptions, unSubscribeSchedule } from '../api/user';
+import { searchSchedules } from '../api/schedule';
 import { useSelector } from 'react-redux';
 
 import { BookmarkCheck } from 'react-bootstrap-icons';
@@ -17,10 +18,18 @@ const Subscriptions = () => {
 
   const [loaded, setLoaded] = useState(false);
   const [subscriptions, setSubscriptions] = useState({});
+  const [searchText, setSearchText] = useState('');
+  const [foundSchedules, setFoundSchedules] = useState([]);
 
-  const handleClickUnSubscribe = async (subscription) =>{
+  const handleClickUnSubscribe = async (subscription) => {
     await unSubscribeSchedule(userId, subscription.schedule_id);
     fetchData();
+  };
+
+  const handleChangeControl = async (e) => {
+    setSearchText(e.target.value);
+    
+    setFoundSchedules(await searchSchedules(searchText));
   };
 
   const fetchData = async () => {
@@ -38,26 +47,52 @@ const Subscriptions = () => {
     );
   }
 
-  console.log(subscriptions);
-
   return (
     <div>
       <Header/>
       <div className='subs-page__main-container' >
-        <h3 className='profile-headers' >
-          <BookmarkCheck size={20} className='pofile-headers__icon' />
-          {strings.mySubs}
-        </h3>
         <Form>
           <Form.Group>
             <Form.Label>{strings.nameSchedule}</Form.Label>
-            <Form.Control placeholder={strings.enterScheduleName} />
+            <Form.Control placeholder={strings.enterScheduleName} onChange={handleChangeControl} />
             <Form.Text className="text-muted">
               {strings.unicalKeySearchSchedule}
             </Form.Text>
           </Form.Group>
         </Form>
-        <Table striped bordered hover>
+        {
+          foundSchedules.length !== 0 &&
+          <div className='subs__search-container' >
+            <div>
+              {foundSchedules.length}
+            </div>
+            <Table responsive>
+              <tbody>
+                {
+                  foundSchedules.length !== 0 &&
+                  foundSchedules.map((schedule) => {
+                    return (
+                      <tr key={schedule.id} >
+                        <td>{schedule.id}</td>
+                        <td>{schedule.name}</td>
+                        <td>
+                          <Button variant='outline-primary' href={`/schedules/${schedule.id}`} >
+                            {strings.view}
+                          </Button>
+                        </td>
+                      </tr>
+                    );
+                  })
+                }
+              </tbody>
+            </Table>
+          </div>
+        }
+        <h3 className='profile-headers' >
+          <BookmarkCheck size={20} className='pofile-headers__icon' />
+          {strings.mySubs}
+        </h3>
+        <Table responsive>
           <thead>
             <tr>
               <th>{strings.idSchedule}</th>

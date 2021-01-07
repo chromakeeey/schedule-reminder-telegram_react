@@ -7,7 +7,7 @@ import OwnSchedule from '../components/OwnSchedule';
 import Header from '../components/Header';
 import '../styles/profile.css';
 
-import { Book, BookmarkCheck } from 'react-bootstrap-icons';
+import { Book } from 'react-bootstrap-icons';
 
 const Profile = () => {
   const userId = useSelector(state => state.user.currentUser);
@@ -42,10 +42,6 @@ const Profile = () => {
             })
           }
         </div>
-        <h3 className='profile-headers' >
-          <BookmarkCheck size={20} className='pofile-headers__icon' />
-          {strings.mySubs}
-        </h3>
       </div>
     </div>
   );

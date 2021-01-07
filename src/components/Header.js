@@ -36,7 +36,6 @@ const Header = () => {
     <Navbar bg='dark' variant='dark' className='navbar-main-container' >
       <Navbar.Brand href="/home">{strings.brandName}</Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link href="/home/schedules">{strings.mySchedules}</Nav.Link>
         <Nav.Link href="/home/subscriptions">{strings.mySubs}</Nav.Link>
         {
           user.admin_level !== undefined &&
