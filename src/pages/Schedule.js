@@ -18,6 +18,7 @@ import { PencilFill, Check, Newspaper, CardList } from 'react-bootstrap-icons';
 const Schedule = () => {
   const { scheduleId } = useParams();
   const [schedule, setSchedule] = useState({});
+  const [loaded, setLoaded] = useState(false);
   const userId = useSelector(state => state.user.currentUser)
 
   const date = new Date(schedule.created_at);
@@ -26,6 +27,7 @@ const Schedule = () => {
     const _schedule = await getSchedule(scheduleId);
     setSchedule(_schedule);
 
+    setLoaded(true);
     return true;
   }
 
@@ -41,7 +43,7 @@ const Schedule = () => {
     fetchData();
   }, []);
 
-  if (!schedule) {
+  if (!loaded) {
     return (
       <div>
         <Header/>
@@ -66,7 +68,10 @@ const Schedule = () => {
             </div>
           </div>
           <div>
-            <Button variant='outline-success' onClick={handleClickSubscribe} >
+            <Button variant='outline-primary' href={`https://t.me/${schedule.user.username}`} >
+              {strings.goTelegram}
+            </Button>
+            <Button variant='outline-success' onClick={handleClickSubscribe} className='schedule-page__button-edit'>
               <Check style={{paddingRight: 5}} />
               {
                 schedule.is_subscribe

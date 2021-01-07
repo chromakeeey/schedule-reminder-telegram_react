@@ -1,0 +1,9 @@
+.subs-page__main-container {
+  font-family: 'Rubik', sans-serif;
+  padding: 15px;
+}
+
+.profile-headers {
+  display: flex;
+  align-items: center;
+}

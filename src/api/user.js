@@ -1,6 +1,8 @@
 import axiosInstance from './axiosInstance'
 import { setUser } from '../reducers/userReducer';
 
+
+
 export const Authentication = (telegramToken) => {
   return async (dispatch) => {
     const response = await axiosInstance.get(`auth/${telegramToken}`);
@@ -29,6 +31,18 @@ export const Verify = () => {
       localStorage.removeItem('access-token');
     }
   }
+};
+
+export const getSubscriptions = async (userId) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.get(`users/${userId}/subscriptions`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  });
+
+  return response.data;
 };
 
 export const getUser = async (userId) => {
@@ -68,3 +82,4 @@ export const unSubscribeSchedule = async (userId, scheduleId) => {
 
   return response.data;
 };
+

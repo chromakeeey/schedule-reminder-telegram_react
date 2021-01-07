@@ -7,6 +7,7 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import Schedule from './pages/Schedule';
 import ScheduleEdit from './pages/ScheduleEdit';
+import Subscriptions from './pages/Subscriptions';
 
 import { getLanguage } from './api/language';
 import { Verify } from './api/user';
@@ -53,6 +54,7 @@ function App() {
       <Switch>
         <Route path='/home' exact component={Profile} />
         <Route path='/home/schedules' exact component={Profile} />
+        <Route path='/home/subscriptions' exact component={Subscriptions}/>
         <Route path='/schedules/:scheduleId' exact component={Schedule} />
         <Route path='/schedules/:scheduleId/edit' exact component={ScheduleEdit} />
         <Route exact path='/'>

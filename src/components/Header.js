@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
-import Link from 'react-router-dom/Link';
+import { Link } from 'react-router-dom';
 
 import { changeLanguage } from '../api/language';
 import { getUser } from '../api/user';

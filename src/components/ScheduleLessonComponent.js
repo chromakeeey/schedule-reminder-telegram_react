@@ -1,12 +1,10 @@
 /* eslint-disable react/prop-types */
 import React from 'react'
 
+import strings from '../locale/strings';
 import '../styles/day-component.css';
 
 const ScheduleLessonComponent = ({ lesson, serial }) => {
-  console.log(lesson);
-
-
   const intToStringTime = (number) => {
     return (
       number < 10
@@ -19,7 +17,7 @@ const ScheduleLessonComponent = ({ lesson, serial }) => {
     return (
       <div className='lesson-container__serial' >
         <div className='serial-container' >{serial}</div>
-        <div className='no-lesson-container' >No lesson</div>
+        <div className='no-lesson-container' >{strings.noLesson}</div>
       </div>
     );
   }
@@ -43,7 +41,7 @@ const ScheduleLessonComponent = ({ lesson, serial }) => {
               {
                 subject.subgroup_id !== 0 &&
                 <div className='serial-duration' >
-                  {subject.subgroup_id} subgroup
+                  {subject.subgroup_id} {strings.subgroup}
                 </div>
               }
             </div>
@@ -51,7 +49,7 @@ const ScheduleLessonComponent = ({ lesson, serial }) => {
         })
       }
       <div className='serial-duration margin-top-20' >
-        Duration
+        {strings.duration}
       </div>
       <div className='serial-time-string' >
           {stringTime}

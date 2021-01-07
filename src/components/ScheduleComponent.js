@@ -5,8 +5,6 @@ import ScheduleDayComponent from './ScheduleDayComponent';
 import '../styles/schedule-component.css';
 
 const ScheduleComponent = ({ schedule }) => {
-  console.log(schedule);
-
   return (
     <div className='schedule-component__container' >
       <ScheduleDayComponent day={schedule.monday} name={'Monday'} />
