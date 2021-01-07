@@ -31,6 +31,18 @@ export const Verify = () => {
   }
 };
 
+export const getUser = async (userId) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.get(`users/${userId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  });
+
+  return response.data;
+}
+
 export const subscribeSchedule = async (userId, scheduleId) => {
   const token = localStorage.getItem('access-token');
 

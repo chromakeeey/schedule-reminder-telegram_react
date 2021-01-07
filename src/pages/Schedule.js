@@ -99,6 +99,13 @@ const Schedule = () => {
             );
           })
         }
+        {
+          schedule.lessons !== undefined &&
+          schedule.lessons.length === 0 &&
+          <div className='nothing-found-text' >
+            {strings.nothingFound}
+          </div>
+        }
         </div>
         <h3 className='schedule-page__headers' >
           <Newspaper className='schedule-page__headers-icon' />

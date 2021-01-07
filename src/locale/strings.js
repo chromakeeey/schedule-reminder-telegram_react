@@ -19,6 +19,8 @@ let strings = new LocalizedStrings({
     lessons: "Lessons",
     schedule: "Schedule",
     empty: "Empty",
+    nothingFound: "Nothing found",
+    adminPanel: "Admin control panel",
   },
   ru: {
     noAuthLabel: "Вы не авторизованы",
@@ -38,6 +40,8 @@ let strings = new LocalizedStrings({
     lessons: "Предметы",
     schedule: "Расписание",
     empty: "Пусто",
+    nothingFound: "Ничего не найдено",
+    adminPanel: "Панель администратор",
   },
   ua: {
     noAuthLabel: "Ви не авторизовані",
@@ -57,6 +61,8 @@ let strings = new LocalizedStrings({
     lessons: "Предмети",
     schedule: "Розклад",
     empty: "Пусто",
+    nothingFound: "Нічого не знайдено",
+    adminPanel: "Панель адміністратора",
   }
 });
 

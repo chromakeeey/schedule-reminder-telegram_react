@@ -1,0 +1,48 @@
+.navbar-main-container {
+  font-family: 'Rubik', sans-serif;
+}
+
+.navbar__user-container {
+  color: white;
+  text-align: right;
+}
+
+.navbar__user-container-name {
+  font-weight: 500;
+}
+
+.navbar__user-container-button {
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+}
+
+.navbar__user-container-button:active,
+.navbar__user-container-button:focus { 
+  outline: none; 
+}
+
+.navbar__language-contaner {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.navbar-language {
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.user-link {
+  color: inherit;
+  text-decoration: inherit;
+
+  
+}
+
+user-link:focus, user-link:hover, user-link:visited, user-link:link, user-link:active {
+  text-decoration: none;
+  color: inherit;
+}
