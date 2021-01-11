@@ -26,10 +26,14 @@ const Subscriptions = () => {
     fetchData();
   };
 
+  const handleClickSearch = async () => {
+    const schedules = await searchSchedules(searchText);
+
+    setFoundSchedules(schedules);
+  }
+
   const handleChangeControl = async (e) => {
     setSearchText(e.target.value);
-    
-    setFoundSchedules(await searchSchedules(searchText));
   };
 
   const fetchData = async () => {
@@ -59,12 +63,17 @@ const Subscriptions = () => {
               {strings.unicalKeySearchSchedule}
             </Form.Text>
           </Form.Group>
+          <div className='subs__button-search-container' >
+            <Button onClick={handleClickSearch} >
+              Search
+            </Button>
+          </div>
         </Form>
         {
           foundSchedules.length !== 0 &&
           <div className='subs__search-container' >
-            <div>
-              {foundSchedules.length}
+            <div className='subs__results-container' >
+              {strings.numberResults}: {foundSchedules.length}
             </div>
             <Table responsive>
               <tbody>

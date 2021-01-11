@@ -13,7 +13,7 @@ import Header from '../components/Header';
 import '../styles/schedule-page.css';
 
 import Button from 'react-bootstrap/Button';
-import { PencilFill, Check, Newspaper, CardList } from 'react-bootstrap-icons';
+import { PencilFill, Check, Newspaper, CardList, Eye } from 'react-bootstrap-icons';
 
 const Schedule = () => {
   const { scheduleId } = useParams();
@@ -51,6 +51,8 @@ const Schedule = () => {
     );
   }
 
+  console.log(schedule);
+
   return (
     <div>
       <Header/>
@@ -68,8 +70,9 @@ const Schedule = () => {
             </div>
           </div>
           <div>
-            <Button variant='outline-primary' href={`https://t.me/${schedule.user.username}`} >
-              {strings.writeToCreator}
+            <Button variant='outline-primary' href={`/users/${schedule.user.chatid}`} >
+              <Eye style={{paddingRight: 5}} />
+              {strings.viewCreator}
             </Button>
             <Button variant='outline-success' onClick={handleClickSubscribe} className='schedule-page__button-edit'>
               <Check style={{paddingRight: 5}} />

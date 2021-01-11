@@ -1,0 +1,34 @@
+.user-on-schedule__main-container {
+  font-family: 'Rubik', sans-serif;
+  margin-top: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.user-on-schedule__main-container-names {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.user-on-schedule__user-name {
+  color: gray;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.user-on-schedule__user-name a:hover {
+  color: gray;
+}
+
+.user-on-schedule__index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 15px;
+
+  font-weight: 300;
+}

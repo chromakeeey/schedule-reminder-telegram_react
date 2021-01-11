@@ -9,6 +9,19 @@
 }
 
 .subs__search-container {
+  margin-top: 15px;
   height: 200px;
   overflow-y: scroll;
+}
+
+.subs__results-container {
+  font-size: 14px;
+  color: gray;
+}
+
+.subs__button-search-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-bottom: 5px;
 }

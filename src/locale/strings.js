@@ -27,7 +27,9 @@ let strings = new LocalizedStrings({
     duration: "Duration",
     noLesson: "No lesson",
     actions: "Actions",
-    writeToCreator: "Write to creator"
+    writeToCreator: "Write to creator",
+    numberResults: "Number of results",
+    viewCreator: "View creator",
   },
   ru: {
     idSchedule: "ID Расписания",
@@ -55,8 +57,9 @@ let strings = new LocalizedStrings({
     duration: "Продолжительность",
     noLesson: "Занятие отсутствует",
     actions: "Доступные действия",
-    writeToCreator: "Написать создателю"
-    
+    writeToCreator: "Написать создателю",
+    numberResults: "Количество результатов",
+    viewCreator: "Просмотреть создателя",
   },
   ua: {
     idSchedule: "ID розкладу",
@@ -84,7 +87,9 @@ let strings = new LocalizedStrings({
     duration: "Тривалість",
     noLesson: "Заняття відсутнє",
     actions: "Доступні дії",
-    writeToCreator: "Написати засновнику"
+    writeToCreator: "Написати засновнику",
+    numberResults: "Кількість результатів",
+    viewCreator: "Переглянути засновника",
   }
 });
 
