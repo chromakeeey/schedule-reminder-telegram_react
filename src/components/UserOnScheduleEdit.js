@@ -20,7 +20,7 @@ const UserOnScheduleEdit = ({index, user}) => {
       </div>
       <div>
         <Button variant='outline-danger'>
-          <X size={17} />
+          <X size={17} /> Remove
         </Button>
       </div>
     </div>
