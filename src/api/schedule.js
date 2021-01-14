@@ -59,3 +59,29 @@ export const scheduleSubscribers = async (scheduleId) => {
 
   return response.data;
 }
+
+export const addLessonTemplate = async (scheduleId, name) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.post(`schedules/${scheduleId}/lessons-info`, {
+    name
+  }, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return response.data;
+}
+
+export const deleteLessonTemplate = async (scheduleId, lessonTemplateId) => {
+  const token = localStorage.getItem('access-token');
+  
+  const response = await axiosInstance.delete(`schedules/${scheduleId}/lessons-info/${lessonTemplateId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return response.data;
+}

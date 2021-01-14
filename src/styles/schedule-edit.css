@@ -12,3 +12,14 @@
 .schedule-edit__button-success {
   margin-left: 10px;
 }
+
+.schedule-edit__container-lessons {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.schedule-edit__container-lessons-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

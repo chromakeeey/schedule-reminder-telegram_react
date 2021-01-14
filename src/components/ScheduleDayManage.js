@@ -5,7 +5,7 @@ import { Plus } from 'react-bootstrap-icons';
 import ScheduleLessonManage from './ScheduleLessonManage';
 import '../styles/schedule-manage.css';
 
-const ScheduleDayManage = ({ day, name, onEdit }) => {
+const ScheduleDayManage = ({ day, dayIndex, name, onEdit, onClickAdd }) => {
   return (
     <div className='schedule-manage__day-container' >
       <div className='schedule-manage__day-container-header' >
@@ -21,7 +21,7 @@ const ScheduleDayManage = ({ day, name, onEdit }) => {
           )
         })
       }
-      <div className='schedule-manage__button-add' >
+      <div className='schedule-manage__button-add' onClick={() => onClickAdd(dayIndex)} >
         <Plus size={24} />
       </div>
     </div>

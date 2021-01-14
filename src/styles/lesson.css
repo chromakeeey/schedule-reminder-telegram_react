@@ -24,6 +24,23 @@
   transition: 0.5s;
 }
 
+.lessons-edit-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  background-color: #EDEDED;
+
+  font-family: 'Rubik', sans-serif;
+}
+
+.lessons-edit-container__name {
+  flex: 1;
+}
+
 .lesson-container:hover {
   border: solid #000;
   border-width: 2px 2px;
