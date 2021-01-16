@@ -1,13 +1,84 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useState } from 'react'
 
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 
+import { addLesson } from '../../api/schedule';
 
-const ModalAddLesson = ({ show, onHide, templateLessons }) => {
+const ModalAddLesson = ({ show, onHide, onAdd, templateLessons, scheduleId, dayOfWeek }) => {
+  const [serialNumber, setSerialNumber] = useState(1);
+  const [subgroup, setSubgroup] = useState(0);
+  const [lessonName, setLessonName] = useState(0);
+  const [hourStart, setHourStart] = useState(1);
+  const [minuteStart, setMinuteStart] = useState(0);
+  const [hourEnd, setHourEnd] = useState(1);
+  const [minuteEnd, setMinuteEnd] = useState(0);
+
+  const handleClickAdd = async () => {
+    const lesson = {
+      lesson_info_id: templateLessons[lessonName].id,
+      subgroup_id: subgroup,
+
+      day: dayOfWeek,
+      serial: serialNumber,
+
+      time_start: [hourStart, minuteStart],
+      time_end: [hourEnd, minuteEnd],
+    };
+
+    await addLesson(scheduleId, lesson);
+    onHide();
+    onAdd();
+  };
+
+  const handleChangeMinuteEnd = (e) => {
+    const minute = Number(e.target.value);
+    setMinuteEnd(minute);
+  };
+
+  const handleChangeHourEnd = (e) => {
+    const hour = Number(e.target.value);
+    setHourEnd(hour);
+  };
+
+  const handleChangeMinuteStart = (e) => {
+    const minute = Number(e.target.value);
+    setMinuteStart(minute); 
+  };
+
+  const handleChangeHourStart = (e) => {
+    const hour = Number(e.target.value);
+    setHourStart(hour);
+  };
+
+  const handleChangeLessonName = (e) => {
+    const name = e.target.value;
+    
+    const position = templateLessons.map((item) => {
+      return item.name
+    }).indexOf(name);
+
+    setLessonName(position);
+  };
+
+  const handleChangeSubgroup = (e) => {
+    const number = Number(e.target.value);
+
+    if (Number.isNaN(number)) {
+      setSubgroup(0);
+    } else {
+      setSubgroup(number);
+    }
+  };
+
+  const handleChangeSerialNumber = (e) => {
+    const serial = Number(e.target.value);
+    setSerialNumber(serial);
+  };
+
   const minuteElemets = [];
 
   for (let i = 0; i < 60; i++) {
@@ -26,7 +97,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
           <Form.Row>
             <Form.Group as={Col} md="4" >
               <Form.Label>Serial number</Form.Label>
-              <Form.Control as='select' >
+              <Form.Control as='select' onChange={handleChangeSerialNumber} >
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -44,7 +115,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
 
             <Form.Group as={Col} md="4">
               <Form.Label>Subgroup</Form.Label>
-              <Form.Control as='select' >
+              <Form.Control as='select' onChange={handleChangeSubgroup} >
                 <option>All</option>
                 <option>1</option>
                 <option>2</option>
@@ -58,7 +129,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
 
           <Form.Group>
             <Form.Label>Lesson name</Form.Label>
-            <Form.Control as='select' >
+            <Form.Control as='select' onChange={handleChangeLessonName} >
               {
                 templateLessons.length !== 0 &&
                 templateLessons.map((template) => {
@@ -75,7 +146,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
           <Form.Row>
             <Form.Group as={Col} md="4" >
               <Form.Label>Hour start</Form.Label>
-              <Form.Control as='select' >
+              <Form.Control as='select' onChange={handleChangeHourStart} >
                 <option>01</option>
                 <option>02</option>
                 <option>03</option>
@@ -104,7 +175,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
             </Form.Group>
             <Form.Group as={Col} md="4" >
               <Form.Label>Minute start</Form.Label>
-              <Form.Control as='select' >
+              <Form.Control as='select' onChange={handleChangeMinuteStart} >
                 {
                   minuteElemets.map((element) => {
                     return (
@@ -121,7 +192,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
           <Form.Row>
           <Form.Group as={Col} md="4" >
               <Form.Label>Hour end</Form.Label>
-              <Form.Control as='select' >
+              <Form.Control as='select' onChange={handleChangeHourEnd} >
                 <option>01</option>
                 <option>02</option>
                 <option>03</option>
@@ -150,7 +221,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
             </Form.Group>
             <Form.Group as={Col} md="4" >
               <Form.Label>Minute end</Form.Label>
-              <Form.Control as='select' >
+              <Form.Control as='select' onChange={handleChangeMinuteEnd} >
                 {
                   minuteElemets.map((element) => {
                     return (
@@ -170,7 +241,7 @@ const ModalAddLesson = ({ show, onHide, templateLessons }) => {
         <Button variant='dark' onClick={onHide} >
           Close
         </Button>
-        <Button variant='success' onClick={onHide} >
+        <Button variant='success' onClick={handleClickAdd} >
           Submit
         </Button>
       </Modal.Footer>

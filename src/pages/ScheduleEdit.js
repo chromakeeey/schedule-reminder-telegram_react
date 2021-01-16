@@ -14,6 +14,7 @@ import ScheduleManage from '../components/ScheduleManage';
 import ModalAddLesson from '../components/Modals/ModalAddLesson';
 import ModalAddLessonTemplate from '../components/Modals/ModalAddLessonTemplate';
 import ModalForSure from '../components/Modals/ModalForSure';
+import ModalError from '../components/Modals/ModalError';
 import NothingFound from '../components/NothingFound';
 import LessonEdit from '../components/LessonEdit';
 
@@ -36,6 +37,11 @@ const ScheduleEdit = () => {
   const [modalSureShow, setModalSureShow] = useState(false);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalTemplateShow, setModalTemplateShow] = useState(false);
+
+  const [modalErrorShow, setModalErrorShow] = useState(false);
+  const [modalErrorTitle, setModalErrorTitle] = useState('');
+  const [modalErrorText, setModalErrorText] = useState('');
+
   // eslint-disable-next-line no-unused-vars
   const [daySelected, setDaySelected] = useState(0);
 
@@ -49,11 +55,28 @@ const ScheduleEdit = () => {
     setLoaded(true);
   };
 
+  const showError = (title, text) => {
+    setModalErrorTitle(title);
+    setModalErrorText(text);
+
+    setModalErrorShow(true);
+  }
+
   const handleOnScheduleEdit = async () =>  {
     console.log('edit');
   }
 
+  const handleOnAddLesson = () => {
+    fetchData();
+  }
+
   const handleClickOnAddLesson = async (dayIndex) => {
+    if (schedule.lessons.length === 0) {
+      showError('no lessons', 'no lessons, add for continue');
+
+      return false;
+    }
+
     setDaySelected(dayIndex);
     setModalAdd(true);
   }
@@ -101,8 +124,26 @@ const ScheduleEdit = () => {
           onOk={handleDeleteLessonTemplate} 
         />
 
-        <ModalAddLesson show={modalAdd} onHide={() => setModalAdd(false)} templateLessons={schedule.lessons} />
-        <ModalAddLessonTemplate show={modalTemplateShow} onHide={() => setModalTemplateShow(false)} onAdd={handleAddTemplateLesson} />
+        <ModalError
+          title={modalErrorTitle}
+          text={modalErrorText}
+          show={modalErrorShow}
+          onHide={() => setModalErrorShow(false)}
+        />
+
+        <ModalAddLesson 
+          show={modalAdd} 
+          onHide={() => setModalAdd(false)} 
+          templateLessons={schedule.lessons} 
+          scheduleId={schedule.id} 
+          dayOfWeek={daySelected} 
+          onAdd={handleOnAddLesson}/>
+
+        <ModalAddLessonTemplate 
+          show={modalTemplateShow} 
+          onHide={() => setModalTemplateShow(false)} 
+          onAdd={handleAddTemplateLesson} />
+
         {schedule.name}
         <Form>
           <Form.Group>

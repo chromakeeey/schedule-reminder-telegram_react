@@ -85,3 +85,15 @@ export const deleteLessonTemplate = async (scheduleId, lessonTemplateId) => {
 
   return response.data;
 }
+
+export const addLesson = async (scheduleId, lesson) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.post(`schedules/${scheduleId}/lessons`, lesson, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return response.data;
+}
