@@ -7,7 +7,7 @@ import { Pencil, X } from 'react-bootstrap-icons';
 
 import '../styles/schedule-manage.css';
 
-const ScheduleLessonManage = ({ lesson, onEdit }) => {
+const ScheduleLessonManage = ({ lesson, onEdit, onClickEditLesson }) => {
   const intToStringTime = (number) => {
     return (
       number < 10
@@ -48,7 +48,7 @@ const ScheduleLessonManage = ({ lesson, onEdit }) => {
         <div className='schedule-manage__lesson-header'>Duration</div>
         <div>{stringTime}</div>
       </div>
-      <Button variant='outline-dark' style={{marginRight: 5}} >
+      <Button variant='outline-dark' style={{marginRight: 5}} onClick={() => onClickEditLesson(lesson)} >
         <Pencil size={17} />
       </Button>
       <Button variant='outline-danger' >

@@ -11,11 +11,14 @@ import {
 import strings from '../locale/strings';
 import UserOnScheduleEdit from '../components/UserOnScheduleEdit';
 import ScheduleManage from '../components/ScheduleManage';
+
+import ModalEditLesson from '../components/Modals/ModalEditLesson';
 import ModalAddLesson from '../components/Modals/ModalAddLesson';
 import ModalAddLessonTemplate from '../components/Modals/ModalAddLessonTemplate';
 import ModalForSure from '../components/Modals/ModalForSure';
 import ModalError from '../components/Modals/ModalError';
 import NothingFound from '../components/NothingFound';
+
 import LessonEdit from '../components/LessonEdit';
 
 import Header from '../components/Header';
@@ -34,9 +37,12 @@ const ScheduleEdit = () => {
   const [schedule, setSchedule] = useState({});
   const [users, setUsers] = useState([]);
   const [templateSelected, setTemplateSelected] = useState(0);
+  const [lessonSelected, setLessonSelected] = useState({});
+
   const [modalSureShow, setModalSureShow] = useState(false);
   const [modalAdd, setModalAdd] = useState(false);
   const [modalTemplateShow, setModalTemplateShow] = useState(false);
+  const [modalEditShow, setModalEditShow] = useState(false);
 
   const [modalErrorShow, setModalErrorShow] = useState(false);
   const [modalErrorTitle, setModalErrorTitle] = useState('');
@@ -102,6 +108,16 @@ const ScheduleEdit = () => {
     fetchData();
   }
 
+  const handleClickEditLesson = (lesson) => {
+    setLessonSelected(lesson);
+    setModalEditShow(true);
+  }
+
+  const handleEditLesson = () => {
+    setModalEditShow(false);
+    fetchData();
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
@@ -116,6 +132,15 @@ const ScheduleEdit = () => {
     <div>
       <Header/>
       <div className='schedule-edit__main-container'>
+        <ModalEditLesson
+          show={modalEditShow}
+          onHide={() => setModalEditShow(false)}
+          onEdit={handleEditLesson}
+          scheduleId={schedule.id}
+          lesson={lessonSelected}
+          templateLessons={schedule.lessons}
+        />
+
         <ModalForSure 
           title={'Delete lesson template'} 
           text={'Are you sure?'} 
@@ -177,7 +202,12 @@ const ScheduleEdit = () => {
 
         <Tabs activeKey={tabKey} onSelect={(key) => setTabKey(key)} >
           <Tab eventKey='schedule' title='Schedule' >
-            <ScheduleManage schedule={schedule} onEdit={handleOnScheduleEdit} onClickAdd={handleClickOnAddLesson} />
+            <ScheduleManage 
+              schedule={schedule} 
+              onEdit={handleOnScheduleEdit} 
+              onClickAdd={handleClickOnAddLesson}
+              onClickEditLesson={handleClickEditLesson} 
+            />
           </Tab>
           <Tab eventKey='user' title='Users'>
             {

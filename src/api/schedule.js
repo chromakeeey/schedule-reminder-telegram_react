@@ -97,3 +97,15 @@ export const addLesson = async (scheduleId, lesson) => {
 
   return response.data;
 }
+
+export const editLesson = async (scheduleId, lessonId, lesson) => {
+  const token = localStorage.getItem('access-token');
+
+  const response = await axiosInstance.put(`schedules/${scheduleId}/lessons/${lessonId}`, lesson, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+
+  return response.data;
+}

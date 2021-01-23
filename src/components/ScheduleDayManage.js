@@ -5,7 +5,7 @@ import { Plus } from 'react-bootstrap-icons';
 import ScheduleLessonManage from './ScheduleLessonManage';
 import '../styles/schedule-manage.css';
 
-const ScheduleDayManage = ({ day, dayIndex, name, onEdit, onClickAdd }) => {
+const ScheduleDayManage = ({ day, dayIndex, name, onEdit, onClickAdd, onClickEditLesson }) => {
   return (
     <div className='schedule-manage__day-container' >
       <div className='schedule-manage__day-container-header' >
@@ -16,7 +16,7 @@ const ScheduleDayManage = ({ day, dayIndex, name, onEdit, onClickAdd }) => {
         day.map((lesson) => {
           return (
             <div key={lesson.id}>
-              <ScheduleLessonManage lesson={lesson} onEdit={onEdit} />
+              <ScheduleLessonManage lesson={lesson} onEdit={onEdit} onClickEditLesson={onClickEditLesson}/>
             </div>
           )
         })

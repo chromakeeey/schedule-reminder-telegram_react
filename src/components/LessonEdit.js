@@ -3,7 +3,7 @@ import React from 'react';
 import '../styles/lesson.css';
 
 import Button from 'react-bootstrap/Button';
-import { Pencil, X } from 'react-bootstrap-icons';
+import { X } from 'react-bootstrap-icons';
 
 const LessonEdit = ({ lesson, onClickDelete }) => {
   return (
@@ -12,9 +12,6 @@ const LessonEdit = ({ lesson, onClickDelete }) => {
         {lesson.name}
       </div>
       <div>
-        <Button variant='outline-dark' style={{marginRight: 5}} >
-           <Pencil/>
-        </Button>
         <Button variant='outline-danger' onClick={() => onClickDelete(lesson.id)} >
           <X/>
         </Button>
