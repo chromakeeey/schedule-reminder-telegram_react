@@ -18,38 +18,6 @@ const LessonEdit = ({ lesson, onClickDelete }) => {
       </div>
     </div>
   )
-
-  // return (
-  //   <div className='lesson-edit-main' >
-  //     <div className='lessons-edit-container' >
-  //       {lesson.name}
-  //     </div>
-  //     <ButtonGroup size="sm">
-  //       <Button variant='outline-dark' >
-  //         <Pencil/>
-  //       </Button>
-  //       <Button variant='outline-danger' >
-  //         <X/>
-  //       </Button>
-  //     </ButtonGroup>
-  //   </div>
-  // )
-
-  // return (
-  //   <div className='lessons-edit-container' >
-  //     {lesson.name}
-  //     <div>
-  //       <ButtonGroup size="sm">
-  //         <Button variant='outline-warning' >
-  //           <Pencil/>
-  //         </Button>
-  //         <Button variant='outline-danger' >
-  //           <X/>
-  //         </Button>
-  //       </ButtonGroup>
-  //     </div>
-  //   </div>
-  // )
 };
 
 export default LessonEdit;

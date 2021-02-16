@@ -30,6 +30,18 @@ let strings = new LocalizedStrings({
     writeToCreator: "Write to creator",
     numberResults: "Number of results",
     viewCreator: "View creator",
+
+    monday: "Monday",
+    tuesday: "Tuesday",
+    wednesday: "Wednesday",
+    thursday: "Thursday",
+    friday: "Friday",
+    saturday: "Saturday",
+    sunday: "Sunday",
+
+    serialNumber: "Serial number",
+    name: "Name",
+    users: "Users",
   },
   ru: {
     idSchedule: "ID Расписания",
@@ -60,6 +72,18 @@ let strings = new LocalizedStrings({
     writeToCreator: "Написать создателю",
     numberResults: "Количество результатов",
     viewCreator: "Просмотреть создателя",
+
+    monday: "Понедельник",
+    tuesday: "Вторник",
+    wednesday: "Среда",
+    thursday: "Четверг",
+    friday: "Пятница",
+    saturday: "Суббота",
+    sunday: "Воскресенье",
+
+    serialNumber: "Порядковый номер",
+    name: "Название",
+    users: "Пользователи",
   },
   ua: {
     idSchedule: "ID розкладу",
@@ -90,6 +114,18 @@ let strings = new LocalizedStrings({
     writeToCreator: "Написати засновнику",
     numberResults: "Кількість результатів",
     viewCreator: "Переглянути засновника",
+
+    monday: "Понеділок",
+    tuesday: "Вівторок",
+    wednesday: "Середа",
+    thursday: "Четвер",
+    friday: "П'ятница",
+    saturday: "Субота",
+    sunday: "Неділя",
+
+    serialNumber: "Порядковий номер",
+    name: "Назва",
+    users: "Користувачі",
   }
 });
 

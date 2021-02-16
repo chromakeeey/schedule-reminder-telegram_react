@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from 'react';
+import strings from '../locale/strings'
 
 import Button from 'react-bootstrap/Button';
 import { Pencil, X } from 'react-bootstrap-icons';
@@ -27,11 +28,11 @@ const ScheduleLessonManage = ({ lesson, onEdit, onClickEditLesson }) => {
   return (
     <div className='schedule-manage__lesson' >
       <div className='schedule-manage__lesson-container' >
-        <div className='schedule-manage__lesson-header'>Serial number</div>
+        <div className='schedule-manage__lesson-header'>{strings.serialNumber}</div>
         <div>{lesson.serial}</div>
       </div>
       <div className='schedule-manage__lesson-container'>
-        <div className='schedule-manage__lesson-header'>Subgroup</div>
+        <div className='schedule-manage__lesson-header'>{strings.subgroup}</div>
         <div>
           {
             lesson.subgroup_id === 0
@@ -41,11 +42,11 @@ const ScheduleLessonManage = ({ lesson, onEdit, onClickEditLesson }) => {
         </div>
       </div>
       <div className='schedule-manage__lesson-container'>
-        <div className='schedule-manage__lesson-header' >Name</div>
+        <div className='schedule-manage__lesson-header' >{strings.name}</div>
         <div>{lesson.name}</div>
       </div>
       <div className='schedule-manage__lesson-container'>
-        <div className='schedule-manage__lesson-header'>Duration</div>
+        <div className='schedule-manage__lesson-header'>{strings.duration}</div>
         <div>{stringTime}</div>
       </div>
       <Button variant='outline-dark' style={{marginRight: 5}} onClick={() => onClickEditLesson(lesson)} >

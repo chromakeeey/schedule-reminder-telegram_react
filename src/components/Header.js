@@ -37,13 +37,13 @@ const Header = () => {
       <Navbar.Brand href="/home">{strings.brandName}</Navbar.Brand>
       <Nav className="mr-auto">
         <Nav.Link href="/home/subscriptions">{strings.mySubs}</Nav.Link>
-        {
+        {/* {
           user.admin_level !== undefined &&
           user.admin_level > 0 &&
           <Nav.Link href="/admin" className='user-link' >
             {strings.adminPanel}
           </Nav.Link>  
-        }
+        } */}
       </Nav>
       {
         user !== undefined &&

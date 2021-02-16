@@ -22,7 +22,7 @@ import NothingFound from '../components/NothingFound';
 import LessonEdit from '../components/LessonEdit';
 
 import Header from '../components/Header';
-import Form from 'react-bootstrap/Form';
+// import Form from 'react-bootstrap/Form';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import { Plus } from 'react-bootstrap-icons';
@@ -170,7 +170,7 @@ const ScheduleEdit = () => {
           onAdd={handleAddTemplateLesson} />
 
         {schedule.name}
-        <Form>
+        {/* <Form>
           <Form.Group>
             <Form.Label>{strings.nameSchedule}</Form.Label>
             <Form.Control placeholder={strings.enterScheduleName} />
@@ -178,7 +178,7 @@ const ScheduleEdit = () => {
               {strings.unicalKeySearchSchedule}
             </Form.Text>
           </Form.Group>
-        </Form>
+        </Form> */}
 
         <div className='schedule-edit__container-lessons' >
           <h5>{strings.lessons}</h5>
@@ -201,7 +201,7 @@ const ScheduleEdit = () => {
         </div>
 
         <Tabs activeKey={tabKey} onSelect={(key) => setTabKey(key)} >
-          <Tab eventKey='schedule' title='Schedule' >
+          <Tab eventKey='schedule' title={strings.schedule} >
             <ScheduleManage 
               schedule={schedule} 
               onEdit={handleOnScheduleEdit} 
@@ -209,7 +209,7 @@ const ScheduleEdit = () => {
               onClickEditLesson={handleClickEditLesson} 
             />
           </Tab>
-          <Tab eventKey='user' title='Users'>
+          <Tab eventKey='user' title={strings.users}>
             {
               users.length !== 0 &&
               users.map((user, index) => {

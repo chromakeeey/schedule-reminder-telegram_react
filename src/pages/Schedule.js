@@ -70,7 +70,7 @@ const Schedule = () => {
             </div>
           </div>
           <div>
-            <Button variant='outline-primary' href={`/users/${schedule.user.chatid}`} >
+            <Button variant='outline-primary' href={`https://t.me/${schedule.user.username}`} >
               <Eye style={{paddingRight: 5}} />
               {strings.viewCreator}
             </Button>
